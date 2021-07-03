@@ -27,9 +27,14 @@ jobs:
       #   uses: hecrj/setup-rust-action@v1
       #   with:
       #     targets: x86_64-unknown-linux-musl
+      - name: Set up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'yarn'
 
-      # - name: Checkout
-      #   uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         
       # - name: Configure AWS credentials
       #   uses: aws-actions/configure-aws-credentials@v1
@@ -45,10 +50,11 @@ jobs:
       #     cp ./target/x86_64-unknown-linux-musl/release/my-table ./bootstrap && zip my-table.zip bootstrap && rm bootstrap
       #     aws s3 cp ./my-table.zip s3://891616054205-ap-southeast-1-aws-lambda/dev-sg-hocvienconggiao/${{ github.event.repository.name }}/latest/dynamodb/my-table.zip
 
-      - name: Build and Push PdfGenerator for Dev
+      - name: Build and Push pdf_generator for Dev
         working-directory: pdf-generator-lambda
         run: |
-          yarn build --production
+          yarn install --production
+          yarn build
           mv ./node_modules ./dist/ && zip pdf-generator.zip ./dist/* && rm pdf-generator.zip
           aws s3 cp ./pdf-generator.zip s3://891616054205-ap-southeast-1-aws-lambda/dev-sg-hocvienconggiao/${{ github.event.repository.name }}/latest/dynamodb/pdf-generator.zip
 

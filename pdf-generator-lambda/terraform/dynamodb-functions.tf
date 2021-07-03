@@ -5,6 +5,7 @@ module "PdfGenerator" {
   function_name = "pdf-generator"
   table_name    = "PdfGeneration"
   is_in_vpc     = false
+  runtime       = "nodejs14.x"
 
   environment = var.environment
   db_host              = var.db_host

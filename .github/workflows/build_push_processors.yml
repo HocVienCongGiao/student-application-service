@@ -55,8 +55,8 @@ jobs:
         run: |
           yarn install --production
           yarn build
-          mv ./node_modules ./dist/ && cd ./dist && zip ./pdf-generator.zip ./*
-          aws s3 cp ./pdf-generator.zip s3://891616054205-ap-southeast-1-aws-lambda/dev-sg-hocvienconggiao/${{ github.event.repository.name }}/latest/dynamodb/pdf-generator.zip
+          mv ./node_modules ./dist/ && cd ./dist && zip ./pdf_generator.zip ./*
+          aws s3 cp ./pdf_generator.zip s3://891616054205-ap-southeast-1-aws-lambda/dev-sg-hocvienconggiao/${{ github.event.repository.name }}/latest/dynamodb/pdf_generator.zip
 
       - name: Deploy Terraform Config 
         run: |

@@ -7,6 +7,8 @@ module "PdfGenerator" {
   table_name    = "PdfGeneration"
   is_in_vpc     = false
   runtime       = "nodejs14.x"
+  memory_size   = 1024
+  timeout       = 40
 
   environment = var.environment
   db_host              = var.db_host

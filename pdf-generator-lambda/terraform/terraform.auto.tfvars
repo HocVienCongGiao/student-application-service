@@ -1,1 +1,1 @@
-service_name = "student-application-pdf"
+service_name = "student-application-service"

@@ -2,6 +2,7 @@ module "PdfGenerator" {
   source = "git::ssh://git@github.com/HocVienCongGiao/terraform-infra.git//skeleton/services/dynamodb-function"
   service_name = var.service_name
 
+  handler       = "index.pdf_generator"
   function_name = "pdf_generator"
   table_name    = "PdfGeneration"
   is_in_vpc     = false

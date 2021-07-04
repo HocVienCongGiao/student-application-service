@@ -5,7 +5,7 @@ module "PdfGenerator" {
   handler       = "index.pdf_generator"
   function_name = "pdf_generator"
   table_name    = "PdfGeneration"
-  is_in_vpc     = false
+  is_in_vpc     = true
   runtime       = "nodejs14.x"
   memory_size   = 1024
   timeout       = 40

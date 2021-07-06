@@ -27,12 +27,13 @@ export const pdf_generator = async (event: any = {}): Promise<any> => {
 
  const page = await browser.newPage();
  await page.goto('file:///var/task/index.js');
+    console.log("screenshoting");
  await page.screenshot({path: '/mnt/shared/example.png'});
 
  await browser.close(); 
 
- const file = "/mnt/shared/example.png"; // Path to and name of object. For example '../myFiles/index.js'.
- const fileStream = fs.createReadStream(file);
+//  const file = "/mnt/shared/example.png"; // Path to and name of object. For example '../myFiles/index.js'.
+//  const fileStream = fs.createReadStream(file);
  
  // Set the parameters
 //  const uploadParams = {
@@ -48,7 +49,7 @@ export const pdf_generator = async (event: any = {}): Promise<any> => {
 //  console.log("Success", data);
 
 
-
+    console.log("dynamodbing");
 // await bareBonesS3.send(new GetObjectCommand({...}));
 const client = new DynamoDBClient({ region: "ap-southeast-1" });
 const command = new ListTablesCommand({});
@@ -60,7 +61,7 @@ console.log(results.TableNames.join("\n"));
 console.error(err);
 }
 
-
+    console.log("ok");
     return response;
 }
 

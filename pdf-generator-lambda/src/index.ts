@@ -26,7 +26,7 @@ export const pdf_generator = async (event: any = {}): Promise<any> => {
  });
 
  const page = await browser.newPage();
- await page.goto('https://google.com');
+ await page.goto('file://.//index.json');
  await page.screenshot({path: '/mnt/shared/example.png'});
 
  await browser.close(); 

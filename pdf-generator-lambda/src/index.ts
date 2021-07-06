@@ -27,11 +27,11 @@ export const pdf_generator = async (event: any = {}): Promise<any> => {
 
  const page = await browser.newPage();
  await page.goto('https://google.com');
- await page.screenshot({path: 'example.png'});
+ await page.screenshot({path: '/mnt/shared/example.png'});
 
  await browser.close(); 
 
- const file = "example.png"; // Path to and name of object. For example '../myFiles/index.js'.
+ const file = "/mnt/shared/example.png"; // Path to and name of object. For example '../myFiles/index.js'.
  const fileStream = fs.createReadStream(file);
  
  // Set the parameters

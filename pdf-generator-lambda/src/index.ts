@@ -35,17 +35,17 @@ export const pdf_generator = async (event: any = {}): Promise<any> => {
  const fileStream = fs.createReadStream(file);
  
  // Set the parameters
- const uploadParams = {
-   Bucket: "891616054205-ap-southeast-1-dev-sg-documents",
-   // Add the required 'Key' parameter using the 'path' module.
-   Key: path.basename(file),
-   // Add the required 'Body' parameter
-   Body: fileStream,
- };
+//  const uploadParams = {
+//    Bucket: "891616054205-ap-southeast-1-dev-sg-documents",
+//    // Add the required 'Key' parameter using the 'path' module.
+//    Key: path.basename(file),
+//    // Add the required 'Body' parameter
+//    Body: fileStream,
+//  };
  
- const s3Client = new S3Client({region: "ap-southeast-1"});
- const data = await s3Client.send(new PutObjectCommand(uploadParams));
- console.log("Success", data);
+//  const s3Client = new S3Client({region: "ap-southeast-1"});
+//  const data = await s3Client.send(new PutObjectCommand(uploadParams));
+//  console.log("Success", data);
 
 
 

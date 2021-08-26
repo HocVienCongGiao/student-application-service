@@ -28,7 +28,7 @@ export const pdf_generator = async (event: any = {}): Promise<any> => {
  const page = await browser.newPage();
  await page.goto('file:///var/task/index.js');
     console.log("screenshoting");
- await page.screenshot({path: '/mnt/shared/example.png'});
+ await page.pdf({path: '/mnt/shared/example.png', format: 'A4'});
 
  await browser.close(); 
 
